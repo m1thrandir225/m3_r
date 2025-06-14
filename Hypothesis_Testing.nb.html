@@ -11,7 +11,7 @@
 
 
 
-<title>Confidence Intervals</title>
+<title>Hypothesis Testing</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -1746,7 +1746,7 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">Confidence Intervals</h1>
+<h1 class="title toc-ignore">Hypothesis Testing</h1>
 
 </div>
 
@@ -1759,13 +1759,15 @@ display: none;
 <pre class="r"><code>install.packages(&quot;BSDA&quot;)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoidHJ5aW5nIFVSTCAnaHR0cHM6Ly9jcmFuLnJzdHVkaW8uY29tL3NyYy9jb250cmliL3Byb3h5XzAuNC0yNy50YXIuZ3onXG50cnlpbmcgVVJMICdodHRwczovL2NyYW4ucnN0dWRpby5jb20vc3JjL2NvbnRyaWIvZTEwNzFfMS43LTE2LnRhci5neidcbnRyeWluZyBVUkwgJ2h0dHBzOi8vY3Jhbi5yc3R1ZGlvLmNvbS9zcmMvY29udHJpYi9CU0RBXzEuMi4yLnRhci5neidcblxuVGhlIGRvd25sb2FkZWQgc291cmNlIHBhY2thZ2VzIGFyZSBpblxuXHTigJgvcHJpdmF0ZS92YXIvZm9sZGVycy9rei8wNnZ6dzBwMTZ3eGIwOW1kNm52dHhzd3cwMDAwZ24vVC9SdG1wcDBoa0VJL2Rvd25sb2FkZWRfcGFja2FnZXPigJlcbiJ9 -->
-<pre><code>trying URL &#39;https://cran.rstudio.com/src/contrib/proxy_0.4-27.tar.gz&#39;
-trying URL &#39;https://cran.rstudio.com/src/contrib/e1071_1.7-16.tar.gz&#39;
-trying URL &#39;https://cran.rstudio.com/src/contrib/BSDA_1.2.2.tar.gz&#39;
+<!-- rnb-output-begin eyJkYXRhIjoidHJ5aW5nIFVSTCAnaHR0cHM6Ly9jcmFuLnJzdHVkaW8uY29tL3NyYy9jb250cmliL0JTREFfMS4yLjIudGFyLmd6J1xuQ29udGVudCB0eXBlICdhcHBsaWNhdGlvbi94LWd6aXAnIGxlbmd0aCAzNDkwNzIgYnl0ZXMgKDM0MCBLQilcbj09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09XG5kb3dubG9hZGVkIDM0MCBLQlxuXG5cblRoZSBkb3dubG9hZGVkIHNvdXJjZSBwYWNrYWdlcyBhcmUgaW5cblx04oCYL3ByaXZhdGUvdmFyL2ZvbGRlcnMva3ovMDZ2encwcDE2d3hiMDltZDZudnR4c3d3MDAwMGduL1QvUnRtcEZrdVFXdi9kb3dubG9hZGVkX3BhY2thZ2Vz4oCZXG4ifQ== -->
+<pre><code>trying URL &#39;https://cran.rstudio.com/src/contrib/BSDA_1.2.2.tar.gz&#39;
+Content type &#39;application/x-gzip&#39; length 349072 bytes (340 KB)
+==================================================
+downloaded 340 KB
+
 
 The downloaded source packages are in
-    ‘/private/var/folders/kz/06vzw0p16wxb09md6nvtxsww0000gn/T/Rtmpp0hkEI/downloaded_packages’</code></pre>
+    ‘/private/var/folders/kz/06vzw0p16wxb09md6nvtxsww0000gn/T/RtmpFkuQWv/downloaded_packages’</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHViR2xpY21GeWVTaGNJa0pUUkVGY0lpbGNibUJnWUNKOSAtLT5cblxuYGBgclxubGlicmFyeShcIkJTREFcIilcbmBgYFxuXG48IS0tIHJuYi1zb3VyY2UtZW5kIC0tPlxuIn0= -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShcIkJTREFcIilcbmBgYCJ9 -->
@@ -1776,77 +1778,55 @@ The downloaded source packages are in
 <!-- rnb-text-begin -->
 <div id="exercise-1" class="section level1">
 <h1>Exercise 1</h1>
-<p>Сигнал кој има нормална распределба N(μ,4)</p>
-<p>се пренесува од локација А до локација В. Сигналот е пратен 9 пати,
-при што се добиваат следните податоци: 5, 8.5, 12, 15, 7, 9, 7.5, 6.5,
-10.5.</p>
-<ol style="list-style-type: decimal">
-<li><p>Да се конструира 95% интервал на доверба за μ</p></li>
-<li><p>Да се конструира 99% интервал на доверба за μ</p></li>
-<li><p>Под претпоставка дека дисперзијата не е позната, од дадените
-податоци да се конструира 95% интервал на доверба за μ</p></li>
-</ol>
+<p>Шишињата Кока-Кола треба да содржат по 300 ml. Но, машината за
+полнење не е комплетно прецизна, па постои разлика од едно до друго
+шише. Се претпоставува дека количината на течноста во шишињата има
+нормална распределба со стандардна девијацијa 𝜎=3σ=3 ml. Контролата зема
+примерок од 6 шишиња и ги добива следните тежини: 299.5, 298.2, 301.1,
+299.9, 300.05, 298.6. Дали со ниво на значајност 𝛼=0.01α=0.01 може да се
+заклучи дека количината на Кока-Кола во едно шише е помала од
+пропишаните стандарди?</p>
 <div id="solution" class="section level2">
 <h2>Solution</h2>
-<ol style="list-style-type: decimal">
-<li>Construct a 95% confidence interval for mu</li>
-</ol>
+<p>We propose the following hypothesis</p>
+<p><span class="math display">\[ H_0: \mu = 300 \]</span></p>
+<p><span class="math display">\[
+H_a: \mu_0 \neq 300
+\]</span></p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVYRzU0SUR3dElHTW9OU3dnT0M0MUxDQXhNaXdnTVRVc0lEY3NJRGtzSURjdU5Td2dOaTQxTENBeE1DNDFLVnh1ZUZ4dVlHQmdJbjA9IC0tPlxuXG5gYGByXG5cbnggPC0gYyg1LCA4LjUsIDEyLCAxNSwgNywgOSwgNy41LCA2LjUsIDEwLjUpXG54XG5gYGBcblxuPCEtLSBybmItc291cmNlLWVuZCAtLT5cbiJ9 -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXG54IDwtIGMoNSwgOC41LCAxMiwgMTUsIDcsIDksIDcuNSwgNi41LCAxMC41KVxueFxuYGBgIn0= -->
-<pre class="r"><code>
-x &lt;- c(5, 8.5, 12, 15, 7, 9, 7.5, 6.5, 10.5)
-x</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVlQ0E4TFNCaklDZ3lPVGt1TlN3Z01qazRMaklzSURNd01TNHhMQ0F5T1RrdU9Td2dNekF3TGpBMUxDQXlPVGd1TmlsY2JtRnNjR2hoSUR3dElEQXVNU0JjYm5KbGMzVnNkQ0E4TFNCNkxuUmxjM1FvZUN3Z2JYVWdQU0F6TURBc0lITnBaMjFoTG5nZ1BTQXpMQ0JoYkhSbGNtNWhkR2wyWlNBOUlGd2liR1Z6YzF3aUxDQmpiMjVtTG14bGRtVnNJRDBnS0RFdElHRnNjR2hoS1NsY2JuSmxjM1ZzZEZ4dVlHQmdJbjA9IC0tPlxuXG5gYGByXG54IDwtIGMgKDI5OS41LCAyOTguMiwgMzAxLjEsIDI5OS45LCAzMDAuMDUsIDI5OC42KVxuYWxwaGEgPC0gMC4xIFxucmVzdWx0IDwtIHoudGVzdCh4LCBtdSA9IDMwMCwgc2lnbWEueCA9IDMsIGFsdGVybmF0aXZlID0gXCJsZXNzXCIsIGNvbmYubGV2ZWwgPSAoMS0gYWxwaGEpKVxucmVzdWx0XG5gYGBcblxuPCEtLSBybmItc291cmNlLWVuZCAtLT5cbiJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueCA8LSBjICgyOTkuNSwgMjk4LjIsIDMwMS4xLCAyOTkuOSwgMzAwLjA1LCAyOTguNilcbmFscGhhIDwtIDAuMSBcbnJlc3VsdCA8LSB6LnRlc3QoeCwgbXUgPSAzMDAsIHNpZ21hLnggPSAzLCBhbHRlcm5hdGl2ZSA9IFwibGVzc1wiLCBjb25mLmxldmVsID0gKDEtIGFscGhhKSlcbnJlc3VsdFxuYGBgIn0= -->
+<pre class="r"><code>x &lt;- c (299.5, 298.2, 301.1, 299.9, 300.05, 298.6)
+alpha &lt;- 0.1 
+result &lt;- z.test(x, mu = 300, sigma.x = 3, alternative = &quot;less&quot;, conf.level = (1- alpha))
+result</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdICA1LjAgIDguNSAxMi4wIDE1LjAgIDcuMCAgOS4wICA3LjUgIDYuNSAxMC41XG4ifQ== -->
-<pre><code>[1]  5.0  8.5 12.0 15.0  7.0  9.0  7.5  6.5 10.5</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVlaTUwWlhOMEtIZ3NJSE5wWjIxaExuZ2dQU0F5TENCamIyNW1MbXhsZG1Wc0lEMGdNQzQ1TlNra1kyOXVaaTVwYm5SY2JtQmdZQ0o5IC0tPlxuXG5gYGByXG56LnRlc3QoeCwgc2lnbWEueCA9IDIsIGNvbmYubGV2ZWwgPSAwLjk1KSRjb25mLmludFxuYGBgXG5cbjwhLS0gcm5iLXNvdXJjZS1lbmQgLS0+XG4ifQ== -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuei50ZXN0KHgsIHNpZ21hLnggPSAyLCBjb25mLmxldmVsID0gMC45NSkkY29uZi5pbnRcbmBgYCJ9 -->
-<pre class="r"><code>z.test(x, sigma.x = 2, conf.level = 0.95)$conf.int</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdICA3LjY5MzM1NyAxMC4zMDY2NDNcbmF0dHIoLFwiY29uZi5sZXZlbFwiKVxuWzFdIDAuOTVcbiJ9 -->
-<pre><code>[1]  7.693357 10.306643
-attr(,&quot;conf.level&quot;)
-[1] 0.95</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiXG5cdE9uZS1zYW1wbGUgei1UZXN0XG5cbmRhdGE6ICB4XG56ID0gLTAuMzYwNjIsIHAtdmFsdWUgPSAwLjM1OTJcbmFsdGVybmF0aXZlIGh5cG90aGVzaXM6IHRydWUgbWVhbiBpcyBsZXNzIHRoYW4gMzAwXG45MCBwZXJjZW50IGNvbmZpZGVuY2UgaW50ZXJ2YWw6XG4gICAgICAgTkEgMzAxLjEyNzlcbnNhbXBsZSBlc3RpbWF0ZXM6XG5tZWFuIG9mIHggXG4gMjk5LjU1ODMgXG4ifQ== -->
+<pre><code>
+    One-sample z-Test
+
+data:  x
+z = -0.36062, p-value = 0.3592
+alternative hypothesis: true mean is less than 300
+90 percent confidence interval:
+       NA 301.1279
+sample estimates:
+mean of x 
+ 299.5583 </code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<ol start="2" style="list-style-type: decimal">
-<li>Construct a 99% confidence interval for mu</li>
-</ol>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVlaTUwWlhOMEtIZ3NJSE5wWjIxaExuZzlJRElzSUdOdmJtWXViR1YyWld3Z1BTQXdMams1S1NSamIyNW1MbWx1ZEZ4dVlHQmdJbjA9IC0tPlxuXG5gYGByXG56LnRlc3QoeCwgc2lnbWEueD0gMiwgY29uZi5sZXZlbCA9IDAuOTkpJGNvbmYuaW50XG5gYGBcblxuPCEtLSBybmItc291cmNlLWVuZCAtLT5cbiJ9 -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuei50ZXN0KHgsIHNpZ21hLng9IDIsIGNvbmYubGV2ZWwgPSAwLjk5KSRjb25mLmludFxuYGBgIn0= -->
-<pre class="r"><code>z.test(x, sigma.x= 2, conf.level = 0.99)$conf.int</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVZV3h3YUdFZ1BDQnlaWE4xYkhRa2NDNTJZV3gxWlZ4dVlHQmdJbjA9IC0tPlxuXG5gYGByXG5hbHBoYSA8IHJlc3VsdCRwLnZhbHVlXG5gYGBcblxuPCEtLSBybmItc291cmNlLWVuZCAtLT5cbiJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYWxwaGEgPCByZXN1bHQkcC52YWx1ZVxuYGBgIn0= -->
+<pre class="r"><code>alpha &lt; result$p.value</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdICA3LjI4Mjc4IDEwLjcxNzIyXG5hdHRyKCxcImNvbmYubGV2ZWxcIilcblsxXSAwLjk5XG4ifQ== -->
-<pre><code>[1]  7.28278 10.71722
-attr(,&quot;conf.level&quot;)
-[1] 0.99</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<ol start="3" style="list-style-type: decimal">
-<li>If the dispersion is unknown, construct a 95% confidence interval
-for mu</li>
-</ol>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVkQzUwWlhOMEtIZ3NJR052Ym1ZdWJHVjJaV3dnUFNBd0xqazFLU1JqYjI1bUxtbHVkRnh1WUdCZ0luMD0gLS0+XG5cbmBgYHJcbnQudGVzdCh4LCBjb25mLmxldmVsID0gMC45NSkkY29uZi5pbnRcbmBgYFxuXG48IS0tIHJuYi1zb3VyY2UtZW5kIC0tPlxuIn0= -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudC50ZXN0KHgsIGNvbmYubGV2ZWwgPSAwLjk1KSRjb25mLmludFxuYGBgIn0= -->
-<pre class="r"><code>t.test(x, conf.level = 0.95)$conf.int</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdICA2LjYzMDgwNiAxMS4zNjkxOTRcbmF0dHIoLFwiY29uZi5sZXZlbFwiKVxuWzFdIDAuOTVcbiJ9 -->
-<pre><code>[1]  6.630806 11.369194
-attr(,&quot;conf.level&quot;)
-[1] 0.95</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFRSVUVcbiJ9 -->
+<pre><code>[1] TRUE</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -1854,51 +1834,174 @@ attr(,&quot;conf.level&quot;)
 </div>
 <div id="exercise-2" class="section level1">
 <h1>Exercise 2</h1>
-<p>Пластичните плочи произведени од машина постојано се следат за можни
-флуктуации во дебелината (мерени во mm). Се знае дека нивната дебелина
-има нормална распределба. Биле направени мерења на дебелина за случаен
-примерок од 10 плочи произведени во одредена смена и добиени се следните
-резултати: 226, 226, 227, 226, 225, 228, 225, 226, 229, 227. Да се
-определи 95% интервал на доверба за дисперзијата на дебелината.</p>
+<p>Една фабрика произведува метални шипки. Според стандардите
+очекуваната должина на шипките треба да е 80 cm. Да се утврди дали
+производството на фабриката е според стандардите, ако е земен примерок
+од 10 шипки и измерени се следните должини: 81, 85, 76, 79, 84, 83, 77,
+89, 79, 80. Нивото на значајност на тестот е 𝛼=0.05α=0.05. Се
+претпоставува дека должината на шипките е обележје со нормална
+распределба.</p>
+<div id="solution-1" class="section level2">
+<h2>Solution</h2>
+<p>We setup the following hypothesis:</p>
+<p><span class="math display">\[
+H_0: \mu = 80,
+\]</span></p>
+<p><span class="math display">\[
+H_a: \mu \neq 80
+\]</span></p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVZV3h3YUdFZ1BDMGdNQzR3TlZ4dVlHQmdJbjA9IC0tPlxuXG5gYGByXG5hbHBoYSA8LSAwLjA1XG5gYGBcblxuPCEtLSBybmItc291cmNlLWVuZCAtLT5cbiJ9 -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYWxwaGEgPC0gMC4wNVxuYGBgIn0= -->
-<pre class="r"><code>alpha &lt;- 0.05</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVlQ0E4TFNCaktEZ3hMQ0E0TlN3Z056WXNJRGM1TENBNE5Dd2dPRE1zSURjM0xDQTRPU3dnTnprc0lEZ3dLVnh1WVd4d2FHRWdQQzBnTUM0d05WeHVjbVZ6ZFd4MElEd3RJSFF1ZEdWemRDaDRMQ0J0ZFNBOUlEZ3dMQ0JoYkhSbGNtNWhkR2wyWlNBOUlGd2lkSGR2TG5OcFpHVmtYQ0lzSUdOdmJtWXViR1YyWld3OUtERWdMU0JoYkhCb1lTa3BYRzV5WlhOMWJIUmNibUJnWUNKOSAtLT5cblxuYGBgclxueCA8LSBjKDgxLCA4NSwgNzYsIDc5LCA4NCwgODMsIDc3LCA4OSwgNzksIDgwKVxuYWxwaGEgPC0gMC4wNVxucmVzdWx0IDwtIHQudGVzdCh4LCBtdSA9IDgwLCBhbHRlcm5hdGl2ZSA9IFwidHdvLnNpZGVkXCIsIGNvbmYubGV2ZWw9KDEgLSBhbHBoYSkpXG5yZXN1bHRcbmBgYFxuXG48IS0tIHJuYi1zb3VyY2UtZW5kIC0tPlxuIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueCA8LSBjKDgxLCA4NSwgNzYsIDc5LCA4NCwgODMsIDc3LCA4OSwgNzksIDgwKVxuYWxwaGEgPC0gMC4wNVxucmVzdWx0IDwtIHQudGVzdCh4LCBtdSA9IDgwLCBhbHRlcm5hdGl2ZSA9IFwidHdvLnNpZGVkXCIsIGNvbmYubGV2ZWw9KDEgLSBhbHBoYSkpXG5yZXN1bHRcbmBgYCJ9 -->
+<pre class="r"><code>x &lt;- c(81, 85, 76, 79, 84, 83, 77, 89, 79, 80)
+alpha &lt;- 0.05
+result &lt;- t.test(x, mu = 80, alternative = &quot;two.sided&quot;, conf.level=(1 - alpha))
+result</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5cdE9uZSBTYW1wbGUgdC10ZXN0XG5cbmRhdGE6ICB4XG50ID0gMS4wMzQ2LCBkZiA9IDksIHAtdmFsdWUgPSAwLjMyNzlcbmFsdGVybmF0aXZlIGh5cG90aGVzaXM6IHRydWUgbWVhbiBpcyBub3QgZXF1YWwgdG8gODBcbjk1IHBlcmNlbnQgY29uZmlkZW5jZSBpbnRlcnZhbDpcbiA3OC40NTc1MSA4NC4xNDI0OVxuc2FtcGxlIGVzdGltYXRlczpcbm1lYW4gb2YgeCBcbiAgICAgODEuMyBcbiJ9 -->
+<pre><code>
+    One Sample t-test
+
+data:  x
+t = 1.0346, df = 9, p-value = 0.3279
+alternative hypothesis: true mean is not equal to 80
+95 percent confidence interval:
+ 78.45751 84.14249
+sample estimates:
+mean of x 
+     81.3 </code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVlQ0E4TFNCaktESXlOaXdnTWpJMkxDQXlNamNzSURJeU5pd2dNakkxTENBeU1qZ3NJREl5TlN3Z01qSTJMQ0F5TWprc0lESXlOeWxjYm1CZ1lDSjkgLS0+XG5cbmBgYHJcbnggPC0gYygyMjYsIDIyNiwgMjI3LCAyMjYsIDIyNSwgMjI4LCAyMjUsIDIyNiwgMjI5LCAyMjcpXG5gYGBcblxuPCEtLSBybmItc291cmNlLWVuZCAtLT5cbiJ9 -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueCA8LSBjKDIyNiwgMjI2LCAyMjcsIDIyNiwgMjI1LCAyMjgsIDIyNSwgMjI2LCAyMjksIDIyNylcbmBgYCJ9 -->
-<pre class="r"><code>x &lt;- c(226, 226, 227, 226, 225, 228, 225, 226, 229, 227)</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVZV3h3YUdFZ1BDQnlaWE4xYkhRa2NDNTJZV3gxWlZ4dVhHNWdZR0FpZlE9PSAtLT5cblxuYGBgclxuYWxwaGEgPCByZXN1bHQkcC52YWx1ZVxuXG5gYGBcblxuPCEtLSBybmItc291cmNlLWVuZCAtLT5cbiJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYWxwaGEgPCByZXN1bHQkcC52YWx1ZVxuXG5gYGAifQ== -->
+<pre class="r"><code>alpha &lt; result$p.value
+</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFRSVUVcbiJ9 -->
+<pre><code>[1] TRUE</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+</div>
+<div id="exercise-3" class="section level1">
+<h1>Exercise 3</h1>
+<p>Финансиските средства дозволуваат поправка само на еден од два
+патишта кои се во лоша состојба. За да се утврди оптовареноста на
+случаен начин се избираат 19 датуми за да се измери оптовареноста на
+првиот пат (број на возила кои поминуваат помеѓу две точки на патот во
+текот на 24 часа) и 13 датуми за да се измери оптеретеноста на вториот
+пат.</p>
+<p>I пат: 150, 170, 210, 150, 197, 200, 170, 211, 192, 162, 167, 94,
+210, 160, 190, 174, 93, 200, 170.</p>
+<p>II пат: 93, 143, 176, 204, 200, 170, 155, 120, 180, 130, 140, 140,
+50.</p>
+<p>Финансиерите одлучиле да го поправат првиот пат. Дали со ризик од 5%
+се во право? Се претпоставува дека оптовареноста на патиштата има
+нормална распределба.</p>
+<div id="solution-2" class="section level2">
+<h2>Solution</h2>
+<p>We setup the following hypothesis</p>
+<p><span class="math display">\[
+H_0: \sigma^2_X = \sigma^2_Y
+\]</span></p>
+<p><span class="math display">\[
+H_a: \sigma^2_X \neq \sigma^2_Y
+\]</span></p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVlQ0E4TFNCaktERTFNQ3dnTVRjd0xDQXlNVEFzSURFMU1Dd2dNVGszTENBeU1EQXNJREUzTUN3Z01qRXhMQ0F4T1RJc0lERTJNaXdnTVRZM0xDQTVOQ3dnTWpFd0xDQXhOakFzSURFNU1Dd2dNVGMwTENBNU15d2dNakF3TENBeE56QXBYRzU1SUR3dElHTW9PVE1zSURFME15d2dNVGMyTENBeU1EUXNJREl3TUN3Z01UY3dMQ0F4TlRVc0lERXlNQ3dnTVRnd0xDQXhNekFzSURFME1Dd2dNVFF3TENBMU1DbGNibUZzY0doaElEd3RJREF1TURWY2JuSmxjM1ZzZENBOExTQjJZWEl1ZEdWemRDaDRMQ0I1TENCaGJIUmxjbTVoZEdsMlpTQTlJRndpZEhkdkxuTnBaR1ZrWENJc0lHTnZibVl1YkdWMlpXd2dQU0FvTVMwZ1lXeHdhR0VwS1Z4dWNtVnpkV3gwWEc1Z1lHQWlmUT09IC0tPlxuXG5gYGByXG54IDwtIGMoMTUwLCAxNzAsIDIxMCwgMTUwLCAxOTcsIDIwMCwgMTcwLCAyMTEsIDE5MiwgMTYyLCAxNjcsIDk0LCAyMTAsIDE2MCwgMTkwLCAxNzQsIDkzLCAyMDAsIDE3MClcbnkgPC0gYyg5MywgMTQzLCAxNzYsIDIwNCwgMjAwLCAxNzAsIDE1NSwgMTIwLCAxODAsIDEzMCwgMTQwLCAxNDAsIDUwKVxuYWxwaGEgPC0gMC4wNVxucmVzdWx0IDwtIHZhci50ZXN0KHgsIHksIGFsdGVybmF0aXZlID0gXCJ0d28uc2lkZWRcIiwgY29uZi5sZXZlbCA9ICgxLSBhbHBoYSkpXG5yZXN1bHRcbmBgYFxuXG48IS0tIHJuYi1zb3VyY2UtZW5kIC0tPlxuIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueCA8LSBjKDE1MCwgMTcwLCAyMTAsIDE1MCwgMTk3LCAyMDAsIDE3MCwgMjExLCAxOTIsIDE2MiwgMTY3LCA5NCwgMjEwLCAxNjAsIDE5MCwgMTc0LCA5MywgMjAwLCAxNzApXG55IDwtIGMoOTMsIDE0MywgMTc2LCAyMDQsIDIwMCwgMTcwLCAxNTUsIDEyMCwgMTgwLCAxMzAsIDE0MCwgMTQwLCA1MClcbmFscGhhIDwtIDAuMDVcbnJlc3VsdCA8LSB2YXIudGVzdCh4LCB5LCBhbHRlcm5hdGl2ZSA9IFwidHdvLnNpZGVkXCIsIGNvbmYubGV2ZWwgPSAoMS0gYWxwaGEpKVxucmVzdWx0XG5gYGAifQ== -->
+<pre class="r"><code>x &lt;- c(150, 170, 210, 150, 197, 200, 170, 211, 192, 162, 167, 94, 210, 160, 190, 174, 93, 200, 170)
+y &lt;- c(93, 143, 176, 204, 200, 170, 155, 120, 180, 130, 140, 140, 50)
+alpha &lt;- 0.05
+result &lt;- var.test(x, y, alternative = &quot;two.sided&quot;, conf.level = (1- alpha))
+result</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5cdEYgdGVzdCB0byBjb21wYXJlIHR3byB2YXJpYW5jZXNcblxuZGF0YTogIHggYW5kIHlcbkYgPSAwLjYzMjU4LCBudW0gZGYgPSAxOCwgZGVub20gZGYgPSAxMiwgcC12YWx1ZSA9IDAuMzY4NVxuYWx0ZXJuYXRpdmUgaHlwb3RoZXNpczogdHJ1ZSByYXRpbyBvZiB2YXJpYW5jZXMgaXMgbm90IGVxdWFsIHRvIDFcbjk1IHBlcmNlbnQgY29uZmlkZW5jZSBpbnRlcnZhbDpcbiAwLjIwMzUyNDggMS43NTE1Mjk5XG5zYW1wbGUgZXN0aW1hdGVzOlxucmF0aW8gb2YgdmFyaWFuY2VzIFxuICAgICAgICAgMC42MzI1NzY3IFxuIn0= -->
+<pre><code>
+    F test to compare two variances
+
+data:  x and y
+F = 0.63258, num df = 18, denom df = 12, p-value = 0.3685
+alternative hypothesis: true ratio of variances is not equal to 1
+95 percent confidence interval:
+ 0.2035248 1.7515299
+sample estimates:
+ratio of variances 
+         0.6325767 </code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHViR1Z1WjNSb0tIZ3BYRzV0WldGdUtIZ3BYRzUyWVhJb2VDbGNibHh1ZG1GeUxtTnZibVl1YVc1MElEd3RJR1oxYm1OMGFXOXVLSGdwSUh0Y2JpQWdiRzkzWlhJZ1BDMGdLR3hsYm1kMGFDaDRLU0F0SURFcElDb2dkbUZ5S0hncElDOGdjV05vYVhOeEtHRnNjR2hoSUM4Z01pd2daR1lnUFNBb2JHVnVaM1JvS0hncElDMGdNU2tzSUd4dmQyVnlMblJoYVd3Z1BTQkdRVXhUUlNsY2JpQWdkWEJ3WlhJZ1BDMGdLR3hsYm1kMGFDaDRLU0F0SURFcElDb2dkbUZ5S0hncElDOGdjV05vYVhOeEtERWdMU0JoYkhCb1lTQXZJRElzSUdSbUlEMGdLR3hsYm1kMGFDaDRLU0F0SURFcExDQnNiM2RsY2k1MFlXbHNJRDBnUmtGTVUwVXBYRzRnSUhKbGRIVnliaWhqS0d4dmQyVnlMQ0IxY0hCbGNpa3BYRzU5WEc1Y2JuWmhjaTVqYjI1bUxtbHVkQ2g0S1Z4dVlHQmdJbjA9IC0tPlxuXG5gYGByXG5sZW5ndGgoeClcbm1lYW4oeClcbnZhcih4KVxuXG52YXIuY29uZi5pbnQgPC0gZnVuY3Rpb24oeCkge1xuICBsb3dlciA8LSAobGVuZ3RoKHgpIC0gMSkgKiB2YXIoeCkgLyBxY2hpc3EoYWxwaGEgLyAyLCBkZiA9IChsZW5ndGgoeCkgLSAxKSwgbG93ZXIudGFpbCA9IEZBTFNFKVxuICB1cHBlciA8LSAobGVuZ3RoKHgpIC0gMSkgKiB2YXIoeCkgLyBxY2hpc3EoMSAtIGFscGhhIC8gMiwgZGYgPSAobGVuZ3RoKHgpIC0gMSksIGxvd2VyLnRhaWwgPSBGQUxTRSlcbiAgcmV0dXJuKGMobG93ZXIsIHVwcGVyKSlcbn1cblxudmFyLmNvbmYuaW50KHgpXG5gYGBcblxuPCEtLSBybmItc291cmNlLWVuZCAtLT5cbiJ9 -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGVuZ3RoKHgpXG5tZWFuKHgpXG52YXIoeClcblxudmFyLmNvbmYuaW50IDwtIGZ1bmN0aW9uKHgpIHtcbiAgbG93ZXIgPC0gKGxlbmd0aCh4KSAtIDEpICogdmFyKHgpIC8gcWNoaXNxKGFscGhhIC8gMiwgZGYgPSAobGVuZ3RoKHgpIC0gMSksIGxvd2VyLnRhaWwgPSBGQUxTRSlcbiAgdXBwZXIgPC0gKGxlbmd0aCh4KSAtIDEpICogdmFyKHgpIC8gcWNoaXNxKDEgLSBhbHBoYSAvIDIsIGRmID0gKGxlbmd0aCh4KSAtIDEpLCBsb3dlci50YWlsID0gRkFMU0UpXG4gIHJldHVybihjKGxvd2VyLCB1cHBlcikpXG59XG5cbnZhci5jb25mLmludCh4KVxuYGBgIn0= -->
-<pre class="r"><code>length(x)
-mean(x)
-var(x)
-
-var.conf.int &lt;- function(x) {
-  lower &lt;- (length(x) - 1) * var(x) / qchisq(alpha / 2, df = (length(x) - 1), lower.tail = FALSE)
-  upper &lt;- (length(x) - 1) * var(x) / qchisq(1 - alpha / 2, df = (length(x) - 1), lower.tail = FALSE)
-  return(c(lower, upper))
-}
-
-var.conf.int(x)</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVZV3h3YUdFZ1BDQnlaWE4xYkhRa2NDNTJZV3gxWlZ4dVlHQmdJbjA9IC0tPlxuXG5gYGByXG5hbHBoYSA8IHJlc3VsdCRwLnZhbHVlXG5gYGBcblxuPCEtLSBybmItc291cmNlLWVuZCAtLT5cbiJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYWxwaGEgPCByZXN1bHQkcC52YWx1ZVxuYGBgIn0= -->
+<pre class="r"><code>alpha &lt; result$p.value</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFRSVUVcbiJ9 -->
+<pre><code>[1] TRUE</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Because <span class="math display">\[ \alpha &lt; p \]</span>, we
+don’t reject the hypothesis <span class="math display">\[ H_0:
+\sigma^2_X = \sigma^2_Y \]</span></p>
+<p>Now we need to test the equality of mathematical expectations using a
+test for small samples with equal dispersions.</p>
+<p>We define the following hypotheses:</p>
+<p><span class="math display">\[ H_0: \mu_X = \mu_Y\]</span></p>
+<p><span class="math display">\[ H_a: \mu_X \neq \mu_Y\]</span></p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVjbVZ6ZFd4MElEd3RJSFF1ZEdWemRDaDRMQ0I1TENCaGJIUmxjbTVoZEdsMlpTQTlJRndpWjNKbFlYUmxjbHdpTENCMllYSXVaWEYxWVd3Z1BTQlVVbFZGS1Z4dWNtVnpkV3gwWEc1Z1lHQWlmUT09IC0tPlxuXG5gYGByXG5yZXN1bHQgPC0gdC50ZXN0KHgsIHksIGFsdGVybmF0aXZlID0gXCJncmVhdGVyXCIsIHZhci5lcXVhbCA9IFRSVUUpXG5yZXN1bHRcbmBgYFxuXG48IS0tIHJuYi1zb3VyY2UtZW5kIC0tPlxuIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucmVzdWx0IDwtIHQudGVzdCh4LCB5LCBhbHRlcm5hdGl2ZSA9IFwiZ3JlYXRlclwiLCB2YXIuZXF1YWwgPSBUUlVFKVxucmVzdWx0XG5gYGAifQ== -->
+<pre class="r"><code>result &lt;- t.test(x, y, alternative = &quot;greater&quot;, var.equal = TRUE)
+result</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5cdFR3byBTYW1wbGUgdC10ZXN0XG5cbmRhdGE6ICB4IGFuZCB5XG50ID0gMS45MDAyLCBkZiA9IDMwLCBwLXZhbHVlID0gMC4wMzM1M1xuYWx0ZXJuYXRpdmUgaHlwb3RoZXNpczogdHJ1ZSBkaWZmZXJlbmNlIGluIG1lYW5zIGlzIGdyZWF0ZXIgdGhhbiAwXG45NSBwZXJjZW50IGNvbmZpZGVuY2UgaW50ZXJ2YWw6XG4gMi43NjM2NTggICAgICBJbmZcbnNhbXBsZSBlc3RpbWF0ZXM6XG5tZWFuIG9mIHggbWVhbiBvZiB5IFxuIDE3Mi4xMDUzICAxNDYuMjMwOCBcbiJ9 -->
+<pre><code>
+    Two Sample t-test
+
+data:  x and y
+t = 1.9002, df = 30, p-value = 0.03353
+alternative hypothesis: true difference in means is greater than 0
+95 percent confidence interval:
+ 2.763658      Inf
+sample estimates:
+mean of x mean of y 
+ 172.1053  146.2308 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVZV3h3YUdFZ1BDQnlaWE4xYkhRa2NDNTJZV3gxWlZ4dVlHQmdJbjA9IC0tPlxuXG5gYGByXG5hbHBoYSA8IHJlc3VsdCRwLnZhbHVlXG5gYGBcblxuPCEtLSBybmItc291cmNlLWVuZCAtLT5cbiJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYWxwaGEgPCByZXN1bHQkcC52YWx1ZVxuYGBgIn0= -->
+<pre class="r"><code>alpha &lt; result$p.value</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIEZBTFNFXG4ifQ== -->
+<pre><code>[1] FALSE</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Since <span class="math display">\[ \alpha &gt; p \]</span> we reject
+the hypothesis <span class="math display">\[ H_0 \]</span>.</p>
+<!-- rnb-text-end -->
+</div>
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiQ29uZmlkZW5jZSBJbnRlcnZhbHMiCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KCmBgYHtyfQppbnN0YWxsLnBhY2thZ2VzKCJCU0RBIikKbGlicmFyeSgiQlNEQSIpCmBgYAoKIyBFeGVyY2lzZSAxCgrQodC40LPQvdCw0Lsg0LrQvtGYINC40LzQsCDQvdC+0YDQvNCw0LvQvdCwINGA0LDRgdC/0YDQtdC00LXQu9Cx0LAgTijOvCw0KQoK0YHQtSDQv9GA0LXQvdC10YHRg9Cy0LAg0L7QtCDQu9C+0LrQsNGG0LjRmNCwINCQINC00L4g0LvQvtC60LDRhtC40ZjQsCDQki4g0KHQuNCz0L3QsNC70L7RgiDQtSDQv9GA0LDRgtC10L0gOSDQv9Cw0YLQuCwg0L/RgNC4INGI0YLQviDRgdC1INC00L7QsdC40LLQsNCw0YIg0YHQu9C10LTQvdC40YLQtSDQv9C+0LTQsNGC0L7RhtC4OiA1LCA4LjUsIDEyLCAxNSwgNywgOSwgNy41LCA2LjUsIDEwLjUuCgoxLiAg0JTQsCDRgdC1INC60L7QvdGB0YLRgNGD0LjRgNCwIDk1JSDQuNC90YLQtdGA0LLQsNC7INC90LAg0LTQvtCy0LXRgNCx0LAg0LfQsCDOvAoKMi4gINCU0LAg0YHQtSDQutC+0L3RgdGC0YDRg9C40YDQsCA5OSUg0LjQvdGC0LXRgNCy0LDQuyDQvdCwINC00L7QstC10YDQsdCwINC30LAgzrwKCjMuICDQn9C+0LQg0L/RgNC10YLQv9C+0YHRgtCw0LLQutCwINC00LXQutCwINC00LjRgdC/0LXRgNC30LjRmNCw0YLQsCDQvdC1INC1INC/0L7Qt9C90LDRgtCwLCDQvtC0INC00LDQtNC10L3QuNGC0LUg0L/QvtC00LDRgtC+0YbQuCDQtNCwINGB0LUg0LrQvtC90YHRgtGA0YPQuNGA0LAgOTUlINC40L3RgtC10YDQstCw0Lsg0L3QsCDQtNC+0LLQtdGA0LHQsCDQt9CwIM68CgojIyBTb2x1dGlvbgoKMS4gIENvbnN0cnVjdCBhIDk1JSBjb25maWRlbmNlIGludGVydmFsIGZvciBtdQoKYGBge3J9Cgp4IDwtIGMoNSwgOC41LCAxMiwgMTUsIDcsIDksIDcuNSwgNi41LCAxMC41KQp4Cgp6LnRlc3QoeCwgc2lnbWEueCA9IDIsIGNvbmYubGV2ZWwgPSAwLjk1KSRjb25mLmludApgYGAKCjIuICBDb25zdHJ1Y3QgYSA5OSUgY29uZmlkZW5jZSBpbnRlcnZhbCBmb3IgbXUKCmBgYHtyfQp6LnRlc3QoeCwgc2lnbWEueD0gMiwgY29uZi5sZXZlbCA9IDAuOTkpJGNvbmYuaW50CmBgYAoKMy4gIElmIHRoZSBkaXNwZXJzaW9uIGlzIHVua25vd24sIGNvbnN0cnVjdCBhIDk1JSBjb25maWRlbmNlIGludGVydmFsIGZvciBtdQoKYGBge3J9CnQudGVzdCh4LCBjb25mLmxldmVsID0gMC45NSkkY29uZi5pbnQKYGBgCgojIEV4ZXJjaXNlIDIKCtCf0LvQsNGB0YLQuNGH0L3QuNGC0LUg0L/Qu9C+0YfQuCDQv9GA0L7QuNC30LLQtdC00LXQvdC4INC+0LQg0LzQsNGI0LjQvdCwINC/0L7RgdGC0L7RmNCw0L3QviDRgdC1INGB0LvQtdC00LDRgiDQt9CwINC80L7QttC90Lgg0YTQu9GD0LrRgtGD0LDRhtC40Lgg0LLQviDQtNC10LHQtdC70LjQvdCw0YLQsCAo0LzQtdGA0LXQvdC4INCy0L4gbW0pLiDQodC1INC30L3QsNC1INC00LXQutCwINC90LjQstC90LDRgtCwINC00LXQsdC10LvQuNC90LAg0LjQvNCwINC90L7RgNC80LDQu9C90LAg0YDQsNGB0L/RgNC10LTQtdC70LHQsC4g0JHQuNC70LUg0L3QsNC/0YDQsNCy0LXQvdC4INC80LXRgNC10ZrQsCDQvdCwINC00LXQsdC10LvQuNC90LAg0LfQsCDRgdC70YPRh9Cw0LXQvSDQv9GA0LjQvNC10YDQvtC6INC+0LQgMTAg0L/Qu9C+0YfQuCDQv9GA0L7QuNC30LLQtdC00LXQvdC4INCy0L4g0L7QtNGA0LXQtNC10L3QsCDRgdC80LXQvdCwINC4INC00L7QsdC40LXQvdC4INGB0LUg0YHQu9C10LTQvdC40YLQtSDRgNC10LfRg9C70YLQsNGC0Lg6IDIyNiwgMjI2LCAyMjcsIDIyNiwgMjI1LCAyMjgsIDIyNSwgMjI2LCAyMjksIDIyNy4g0JTQsCDRgdC1INC+0L/RgNC10LTQtdC70LggOTUlINC40L3RgtC10YDQstCw0Lsg0L3QsCDQtNC+0LLQtdGA0LHQsCDQt9CwINC00LjRgdC/0LXRgNC30LjRmNCw0YLQsCDQvdCwINC00LXQsdC10LvQuNC90LDRgtCwLgoKYGBge3J9CmFscGhhIDwtIDAuMDUKYGBgCgpgYGB7cn0KeCA8LSBjKDIyNiwgMjI2LCAyMjcsIDIyNiwgMjI1LCAyMjgsIDIyNSwgMjI2LCAyMjksIDIyNykKYGBgCgpgYGB7cn0KbGVuZ3RoKHgpCm1lYW4oeCkKdmFyKHgpCgp2YXIuY29uZi5pbnQgPC0gZnVuY3Rpb24oeCkgewogIGxvd2VyIDwtIChsZW5ndGgoeCkgLSAxKSAqIHZhcih4KSAvIHFjaGlzcShhbHBoYSAvIDIsIGRmID0gKGxlbmd0aCh4KSAtIDEpLCBsb3dlci50YWlsID0gRkFMU0UpCiAgdXBwZXIgPC0gKGxlbmd0aCh4KSAtIDEpICogdmFyKHgpIC8gcWNoaXNxKDEgLSBhbHBoYSAvIDIsIGRmID0gKGxlbmd0aCh4KSAtIDEpLCBsb3dlci50YWlsID0gRkFMU0UpCiAgcmV0dXJuKGMobG93ZXIsIHVwcGVyKSkKfQoKdmFyLmNvbmYuaW50KHgpCmBgYAo=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiSHlwb3RoZXNpcyBUZXN0aW5nIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgpgYGB7cn0KaW5zdGFsbC5wYWNrYWdlcygiQlNEQSIpCmxpYnJhcnkoIkJTREEiKQpgYGAKCiMgRXhlcmNpc2UgMQoK0KjQuNGI0LjRmtCw0YLQsCDQmtC+0LrQsC3QmtC+0LvQsCDRgtGA0LXQsdCwINC00LAg0YHQvtC00YDQttCw0YIg0L/QviAzMDAgbWwuINCd0L4sINC80LDRiNC40L3QsNGC0LAg0LfQsCDQv9C+0LvQvdC10ZrQtSDQvdC1INC1INC60L7QvNC/0LvQtdGC0L3QviDQv9GA0LXRhtC40LfQvdCwLCDQv9CwINC/0L7RgdGC0L7QuCDRgNCw0LfQu9C40LrQsCDQvtC0INC10LTQvdC+INC00L4g0LTRgNGD0LPQviDRiNC40YjQtS4g0KHQtSDQv9GA0LXRgtC/0L7RgdGC0LDQstGD0LLQsCDQtNC10LrQsCDQutC+0LvQuNGH0LjQvdCw0YLQsCDQvdCwINGC0LXRh9C90L7RgdGC0LAg0LLQviDRiNC40YjQuNGa0LDRgtCwINC40LzQsCDQvdC+0YDQvNCw0LvQvdCwINGA0LDRgdC/0YDQtdC00LXQu9Cx0LAg0YHQviDRgdGC0LDQvdC00LDRgNC00L3QsCDQtNC10LLQuNGY0LDRhtC40ZhhIPCdnI49M8+DPTMgbWwuINCa0L7QvdGC0YDQvtC70LDRgtCwINC30LXQvNCwINC/0YDQuNC80LXRgNC+0Log0L7QtCA2INGI0LjRiNC40ZrQsCDQuCDQs9C4INC00L7QsdC40LLQsCDRgdC70LXQtNC90LjRgtC1INGC0LXQttC40L3QuDogMjk5LjUsIDI5OC4yLCAzMDEuMSwgMjk5LjksIDMwMC4wNSwgMjk4LjYuINCU0LDQu9C4INGB0L4g0L3QuNCy0L4g0L3QsCDQt9C90LDRh9Cw0ZjQvdC+0YHRgiDwnZu8PTAuMDHOsT0wLjAxINC80L7QttC1INC00LAg0YHQtSDQt9Cw0LrQu9GD0YfQuCDQtNC10LrQsCDQutC+0LvQuNGH0LjQvdCw0YLQsCDQvdCwINCa0L7QutCwLdCa0L7Qu9CwINCy0L4g0LXQtNC90L4g0YjQuNGI0LUg0LUg0L/QvtC80LDQu9CwINC+0LQg0L/RgNC+0L/QuNGI0LDQvdC40YLQtSDRgdGC0LDQvdC00LDRgNC00Lg/CgojIyBTb2x1dGlvbiAKCldlIHByb3Bvc2UgdGhlIGZvbGxvd2luZyBoeXBvdGhlc2lzCgokJCBIXzA6IFxtdSA9IDMwMCAkJAoKJCQKSF9hOiBcbXVfMCBcbmVxIDMwMAokJAoKYGBge3J9CnggPC0gYyAoMjk5LjUsIDI5OC4yLCAzMDEuMSwgMjk5LjksIDMwMC4wNSwgMjk4LjYpCmFscGhhIDwtIDAuMSAKcmVzdWx0IDwtIHoudGVzdCh4LCBtdSA9IDMwMCwgc2lnbWEueCA9IDMsIGFsdGVybmF0aXZlID0gImxlc3MiLCBjb25mLmxldmVsID0gKDEtIGFscGhhKSkKcmVzdWx0CmBgYAoKYGBge3J9CmFscGhhIDwgcmVzdWx0JHAudmFsdWUKYGBgCgojIEV4ZXJjaXNlIDIgCgrQldC00L3QsCDRhNCw0LHRgNC40LrQsCDQv9GA0L7QuNC30LLQtdC00YPQstCwINC80LXRgtCw0LvQvdC4INGI0LjQv9C60LguINCh0L/QvtGA0LXQtCDRgdGC0LDQvdC00LDRgNC00LjRgtC1INC+0YfQtdC60YPQstCw0L3QsNGC0LAg0LTQvtC70LbQuNC90LAg0L3QsCDRiNC40L/QutC40YLQtSDRgtGA0LXQsdCwINC00LAg0LUgODAgY20uINCU0LAg0YHQtSDRg9GC0LLRgNC00Lgg0LTQsNC70Lgg0L/RgNC+0LjQt9Cy0L7QtNGB0YLQstC+0YLQviDQvdCwINGE0LDQsdGA0LjQutCw0YLQsCDQtSDRgdC/0L7RgNC10LQg0YHRgtCw0L3QtNCw0YDQtNC40YLQtSwg0LDQutC+INC1INC30LXQvNC10L0g0L/RgNC40LzQtdGA0L7QuiDQvtC0IDEwINGI0LjQv9C60Lgg0Lgg0LjQt9C80LXRgNC10L3QuCDRgdC1INGB0LvQtdC00L3QuNGC0LUg0LTQvtC70LbQuNC90Lg6IDgxLCA4NSwgNzYsIDc5LCA4NCwgODMsIDc3LCA4OSwgNzksIDgwLiDQndC40LLQvtGC0L4g0L3QsCDQt9C90LDRh9Cw0ZjQvdC+0YHRgiDQvdCwINGC0LXRgdGC0L7RgiDQtSDwnZu8PTAuMDXOsT0wLjA1LiDQodC1INC/0YDQtdGC0L/QvtGB0YLQsNCy0YPQstCwINC00LXQutCwINC00L7Qu9C20LjQvdCw0YLQsCDQvdCwINGI0LjQv9C60LjRgtC1INC1INC+0LHQtdC70LXQttGY0LUg0YHQviDQvdC+0YDQvNCw0LvQvdCwINGA0LDRgdC/0YDQtdC00LXQu9Cx0LAuCgojIyBTb2x1dGlvbiAKCldlIHNldHVwIHRoZSBmb2xsb3dpbmcgaHlwb3RoZXNpczoKCiQkCkhfMDogXG11ID0gODAsCiQkCgokJApIX2E6IFxtdSBcbmVxIDgwCiQkCgpgYGB7cn0KeCA8LSBjKDgxLCA4NSwgNzYsIDc5LCA4NCwgODMsIDc3LCA4OSwgNzksIDgwKQphbHBoYSA8LSAwLjA1CnJlc3VsdCA8LSB0LnRlc3QoeCwgbXUgPSA4MCwgYWx0ZXJuYXRpdmUgPSAidHdvLnNpZGVkIiwgY29uZi5sZXZlbD0oMSAtIGFscGhhKSkKcmVzdWx0CmBgYAoKYGBge3J9CmFscGhhIDwgcmVzdWx0JHAudmFsdWUKYGBgCgojIEV4ZXJjaXNlIDMgCgrQpNC40L3QsNC90YHQuNGB0LrQuNGC0LUg0YHRgNC10LTRgdGC0LLQsCDQtNC+0LfQstC+0LvRg9Cy0LDQsNGCINC/0L7Qv9GA0LDQstC60LAg0YHQsNC80L4g0L3QsCDQtdC00LXQvSDQvtC0INC00LLQsCDQv9Cw0YLQuNGI0YLQsCDQutC+0Lgg0YHQtSDQstC+INC70L7RiNCwINGB0L7RgdGC0L7RmNCx0LAuINCX0LAg0LTQsCDRgdC1INGD0YLQstGA0LTQuCDQvtC/0YLQvtCy0LDRgNC10L3QvtGB0YLQsCDQvdCwINGB0LvRg9GH0LDQtdC9INC90LDRh9C40L0g0YHQtSDQuNC30LHQuNGA0LDQsNGCIDE5INC00LDRgtGD0LzQuCDQt9CwINC00LAg0YHQtSDQuNC30LzQtdGA0Lgg0L7Qv9GC0L7QstCw0YDQtdC90L7RgdGC0LAg0L3QsCDQv9GA0LLQuNC+0YIg0L/QsNGCICjQsdGA0L7RmCDQvdCwINCy0L7Qt9C40LvQsCDQutC+0Lgg0L/QvtC80LjQvdGD0LLQsNCw0YIg0L/QvtC80LXRk9GDINC00LLQtSDRgtC+0YfQutC4INC90LAg0L/QsNGC0L7RgiDQstC+INGC0LXQutC+0YIg0L3QsCAyNCDRh9Cw0YHQsCkg0LggMTMg0LTQsNGC0YPQvNC4INC30LAg0LTQsCDRgdC1INC40LfQvNC10YDQuCDQvtC/0YLQtdGA0LXRgtC10L3QvtGB0YLQsCDQvdCwINCy0YLQvtGA0LjQvtGCINC/0LDRgi4KCkkg0L/QsNGCOiAxNTAsIDE3MCwgMjEwLCAxNTAsIDE5NywgMjAwLCAxNzAsIDIxMSwgMTkyLCAxNjIsIDE2NywgOTQsIDIxMCwgMTYwLCAxOTAsIDE3NCwgOTMsIDIwMCwgMTcwLgoKSUkg0L/QsNGCOiA5MywgMTQzLCAxNzYsIDIwNCwgMjAwLCAxNzAsIDE1NSwgMTIwLCAxODAsIDEzMCwgMTQwLCAxNDAsIDUwLgoK0KTQuNC90LDQvdGB0LjQtdGA0LjRgtC1INC+0LTQu9GD0YfQuNC70LUg0LTQsCDQs9C+INC/0L7Qv9GA0LDQstCw0YIg0L/RgNCy0LjQvtGCINC/0LDRgi4g0JTQsNC70Lgg0YHQviDRgNC40LfQuNC6INC+0LQgNSUg0YHQtSDQstC+INC/0YDQsNCy0L4/INCh0LUg0L/RgNC10YLQv9C+0YHRgtCw0LLRg9Cy0LAg0LTQtdC60LAg0L7Qv9GC0L7QstCw0YDQtdC90L7RgdGC0LAg0L3QsCDQv9Cw0YLQuNGI0YLQsNGC0LAg0LjQvNCwINC90L7RgNC80LDQu9C90LAg0YDQsNGB0L/RgNC10LTQtdC70LHQsC4KCiMjIFNvbHV0aW9uIAoKV2Ugc2V0dXAgdGhlIGZvbGxvd2luZyBoeXBvdGhlc2lzCgokJApIXzA6IFxzaWdtYV4yX1ggPSBcc2lnbWFeMl9ZCiQkCgokJApIX2E6IFxzaWdtYV4yX1ggXG5lcSBcc2lnbWFeMl9ZCiQkCgpgYGB7cn0KeCA8LSBjKDE1MCwgMTcwLCAyMTAsIDE1MCwgMTk3LCAyMDAsIDE3MCwgMjExLCAxOTIsIDE2MiwgMTY3LCA5NCwgMjEwLCAxNjAsIDE5MCwgMTc0LCA5MywgMjAwLCAxNzApCnkgPC0gYyg5MywgMTQzLCAxNzYsIDIwNCwgMjAwLCAxNzAsIDE1NSwgMTIwLCAxODAsIDEzMCwgMTQwLCAxNDAsIDUwKQphbHBoYSA8LSAwLjA1CnJlc3VsdCA8LSB2YXIudGVzdCh4LCB5LCBhbHRlcm5hdGl2ZSA9ICJ0d28uc2lkZWQiLCBjb25mLmxldmVsID0gKDEtIGFscGhhKSkKcmVzdWx0CmBgYAoKYGBge3J9CmFscGhhIDwgcmVzdWx0JHAudmFsdWUKYGBgCgpCZWNhdXNlICQkIFxhbHBoYSA8IHAgJCQsIHdlIGRvbid0IHJlamVjdCB0aGUgaHlwb3RoZXNpcyAkJCBIXzA6IFxzaWdtYV4yX1ggPSBcc2lnbWFeMl9ZICQkCgpOb3cgd2UgbmVlZCB0byB0ZXN0IHRoZSBlcXVhbGl0eSBvZiBtYXRoZW1hdGljYWwgZXhwZWN0YXRpb25zIHVzaW5nIGEgdGVzdCBmb3Igc21hbGwgc2FtcGxlcyB3aXRoIGVxdWFsIGRpc3BlcnNpb25zLgoKV2UgZGVmaW5lIHRoZSBmb2xsb3dpbmcgaHlwb3RoZXNlczoKCiQkIEhfMDogXG11X1ggPSBcbXVfWSQkCgokJCBIX2E6IFxtdV9YIFxuZXEgXG11X1kkJAoKYGBge3J9CnJlc3VsdCA8LSB0LnRlc3QoeCwgeSwgYWx0ZXJuYXRpdmUgPSAiZ3JlYXRlciIsIHZhci5lcXVhbCA9IFRSVUUpCnJlc3VsdApgYGAKCmBgYHtyfQphbHBoYSA8IHJlc3VsdCRwLnZhbHVlCmBgYAoKU2luY2UgJCQgXGFscGhhID4gcCAkJCB3ZSByZWplY3QgdGhlIGh5cG90aGVzaXMgJCQgSF8wICQkLgo=</div>
 
 
 
@@ -1945,7 +2048,7 @@ $(document).ready(function () {
 <!-- code folding -->
 <script>
 $(document).ready(function () {
-  window.initializeSourceEmbed("Confidence_Intervals.Rmd");
+  window.initializeSourceEmbed("Hypothesis_Testing.Rmd");
   window.initializeCodeFolding("show" === "show");
 });
 </script>
