@@ -1,0 +1,99 @@
+---
+title: "CLT"
+output: html_notebook
+---
+
+# Zadaca 1 
+
+Да се направи елементарна статистичка обработка за податоците од
+дискретното статистичко обележје X – број на точки при фрлање на коцка,
+ако експериментот се изведува 50 пати и притоа се добиени следните
+реализации: 1, 3, 1, 6, 2, 6, 4, 6, 3, 3, 4, 3, 1, 4, 4, 1, 4, 5, 3, 5,
+4, 1, 1, 1, 5, 4, 3, 2, 1, 4, 6, 4, 3, 2, 2, 2, 3, 6, 1, 2, 2, 3, 5, 3,
+1, 3, 6, 2, 4, 1.
+
+## Solution 
+
+```{r}
+x <- c(1, 3, 1, 6, 2, 6, 4, 6, 3, 3, 4, 3, 1, 4, 4, 1, 4, 5, 3, 5,
+4, 1, 1, 1, 5, 4, 3, 2, 1, 4, 6, 4, 3, 2, 2, 2, 3, 6, 1, 2, 2, 3, 5, 3,
+1, 3, 6, 2, 4, 1)
+x
+```
+
+```{r}
+df <- as.data.frame(table(x))
+df
+```
+
+```{r}
+plot(ecdf(x), main = "Empirical CDF")
+
+```
+
+```{r}
+mean(x)
+var(x)
+sd(x)
+median(x)
+range(x)
+```
+
+# Exercise 2
+
+Да се најде медијана, q1=Q0.25 и q3=Q0.75
+за следниот примерок: 70, 36, 43, 69, 82, 48, 34, 62, 35, 15, 59, 139,
+46, 37, 42, 30, 55, 56, 36, 82, 38, 89, 54, 25, 35, 24, 22, 9, 56,
+19
+
+## Solution
+
+```{r}
+y <- c (70, 36, 43, 69, 82, 48, 34, 62, 35, 15, 59, 139, 46, 37, 42, 30, 55, 56, 36, 82, 38, 89, 54, 25, 35, 24, 22, 9, 56, 19)
+y
+
+```
+
+```{r}
+median(y)
+
+```
+
+1 - quantile = 25% of the given sample needs to be to the left of q1
+
+```{r}
+q1 <- quantile(y, 0.25, names = FALSE, type = 1)
+q1
+```
+
+2 - quantile = 75% of the given sample needs to be to the left of q1
+
+```{r}
+q3 <- quantile(y, 0.75, names = FALSE, type = 1)
+q3
+```
+
+```{r}
+IQR <- q3 - q1
+IQR
+```
+
+Extreme values are 1.5\*IQR left or right of a quantile, namely q1 - 1.5IQR and q3 + 1.5IQR gives the interval that an extreme value should not be in.
+
+```{r}
+ex1 <- q1-1.5*IQR
+ex2 <- q3+1.5*IQR
+c(ex1, ex2)
+
+outliers <- y[y < ex1 | y > ex2]
+outliers
+```
+
+```{r}
+boxplot(y, xlab="y", horizontal = TRUE)
+```
+
+```{r}
+boxplot(y, xlab="y", horizontal = TRUE)
+stripchart(y, vertical = FALSE, method = "stack", pch = 1, col = "blue", add = TRUE)
+```
