@@ -1,0 +1,11 @@
+---
+title: "Ispit 06022024"
+output: html_notebook
+---
+
+# Exercise 12
+
+```{r}
+p5 <- 1 - pexp(90, rate = 1/40)
+p1
+```

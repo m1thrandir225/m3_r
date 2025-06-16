@@ -11,7 +11,7 @@
 
 
 
-<title>ispit_03022025</title>
+<title>Ispit 06022024</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -1746,179 +1746,29 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">ispit_03022025</h1>
+<h1 class="title toc-ignore">Ispit 06022024</h1>
 
 </div>
 
 
 <!-- rnb-text-begin -->
-<div id="exercise-1" class="section level1">
-<h1>Exercise 1</h1>
-<p>Тимот за аналитика во еден ланец златари коишто откупуваат злато, на
-случаен начин избрал 35 различни седмици и сака да спроведе анализа за
-масата (изразена во милиграма) откупено злато во текот на една седмица
-од страна на ланецот златари. Резултатите се следните: 120, 125, 130,
-110, 115, 140, 135, 128, 122, 118, 132, 140, 138, 121, 133, 130, 126,
-127, 129, 119, 136, 125, 123, 131, 124, 137, 139, 120, 128, 132, 125,
-100, 101, 102, 103 Од овие податоци, пресметајте 95% интервал на доверба
-на дисперзијата на масата злато што го откупува ланецот златари во текот
-на една седмица. Познато е дека масата злато што го откупува ланецот
-златари во текот на една седмица има нормална распределба.</p>
-<div id="solution" class="section level2">
-<h2>Solution</h2>
+<div id="exercise-12" class="section level1">
+<h1>Exercise 12</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVlQ0E4TFNCaktERXlNQ3dnTVRJMUxDQXhNekFzSURFeE1Dd2dNVEUxTENBeE5EQXNJREV6TlN3Z01USTRMQ0F4TWpJc0lERXhPQ3dnTVRNeUxDQXhOREFzSURFek9Dd2dNVEl4TENBeE16TXNJREV6TUN3Z01USTJMQ0F4TWpjc01USTVMQ0F4TVRrc0lERXpOaXdnTVRJMUxDQXhNak1zSURFek1Td2dNVEkwTENBeE16Y3NJREV6T1N3Z01USXdMQ0F4TWpnc0lERXpNaXdnTVRJMUxDQXhNREFzSURFd01Td2dNVEF5TENBeE1ETXBYRzVoYkhCb1lTQThMU0F3TGpBMVhHNTJZWElvZUNsY2JtQmdZQ0o5IC0tPlxuXG5gYGByXG54IDwtIGMoMTIwLCAxMjUsIDEzMCwgMTEwLCAxMTUsIDE0MCwgMTM1LCAxMjgsIDEyMiwgMTE4LCAxMzIsIDE0MCwgMTM4LCAxMjEsIDEzMywgMTMwLCAxMjYsIDEyNywxMjksIDExOSwgMTM2LCAxMjUsIDEyMywgMTMxLCAxMjQsIDEzNywgMTM5LCAxMjAsIDEyOCwgMTMyLCAxMjUsIDEwMCwgMTAxLCAxMDIsIDEwMylcbmFscGhhIDwtIDAuMDVcbnZhcih4KVxuYGBgXG5cbjwhLS0gcm5iLXNvdXJjZS1lbmQgLS0+XG4ifQ== -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueCA8LSBjKDEyMCwgMTI1LCAxMzAsIDExMCwgMTE1LCAxNDAsIDEzNSwgMTI4LCAxMjIsIDExOCwgMTMyLCAxNDAsIDEzOCwgMTIxLCAxMzMsIDEzMCwgMTI2LCAxMjcsMTI5LCAxMTksIDEzNiwgMTI1LCAxMjMsIDEzMSwgMTI0LCAxMzcsIDEzOSwgMTIwLCAxMjgsIDEzMiwgMTI1LCAxMDAsIDEwMSwgMTAyLCAxMDMpXG5hbHBoYSA8LSAwLjA1XG52YXIoeClcbmBgYCJ9 -->
-<pre class="r"><code>x &lt;- c(120, 125, 130, 110, 115, 140, 135, 128, 122, 118, 132, 140, 138, 121, 133, 130, 126, 127,129, 119, 136, 125, 123, 131, 124, 137, 139, 120, 128, 132, 125, 100, 101, 102, 103)
-alpha &lt;- 0.05
-var(x)</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVjREVnUEMwZ01TQXRJSEJsZUhBb09UQXNJSEpoZEdVZ1BTQXhMelF3S1Z4dWNERmNibUJnWUNKOSAtLT5cblxuYGBgclxucDEgPC0gMSAtIHBleHAoOTAsIHJhdGUgPSAxLzQwKVxucDFcbmBgYFxuXG48IS0tIHJuYi1zb3VyY2UtZW5kIC0tPlxuIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucDEgPC0gMSAtIHBleHAoOTAsIHJhdGUgPSAxLzQwKVxucDFcbmBgYCJ9 -->
+<pre class="r"><code>p1 &lt;- 1 - pexp(90, rate = 1/40)
+p1</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDEyMi41NzQ4XG4ifQ== -->
-<pre><code>[1] 122.5748</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuMTA1Mzk5MlxuIn0= -->
+<pre><code>[1] 0.1053992</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVkbUZ5TG1OdmJtWXVhVzUwSUR3dElHWjFibU4wYVc5dUtIZ3BJSHRjYmlBZ2JHOTNaWElnUEMwZ0tHeGxibWQwYUNoNEtTQXRJREVwSUNvZ2RtRnlLSGdwSUM4Z2NXTm9hWE54S0dGc2NHaGhMeklzSUdSbUlEMGdLR3hsYm1kMGFDaDRLU0F0SURFcExDQnNiM2RsY2k1MFlXbHNJRDBnUmtGTVUwVXBYRzRnSUhWd2NHVnlJRHd0SUNoc1pXNW5kR2dvZUNrZ0xURWdLU0FxSUhaaGNpaDRLU0F2SUhGamFHbHpjU2d4SUMwZ1lXeHdhR0VnTHpJc0lHUm1JRDBnS0d4bGJtZDBhQ2g0S1NBdElERXBMQ0JzYjNkbGNpNTBZV2xzSUQwZ1JrRk1VMFVwWEc0Z0lISmxkSFZ5YmlBb1l5aHNiM2RsY2l3Z2RYQndaWElwS1Z4dWZWeHVkbUZ5TG1OdmJtWXVhVzUwS0hncFhHNWdZR0FpZlE9PSAtLT5cblxuYGBgclxudmFyLmNvbmYuaW50IDwtIGZ1bmN0aW9uKHgpIHtcbiAgbG93ZXIgPC0gKGxlbmd0aCh4KSAtIDEpICogdmFyKHgpIC8gcWNoaXNxKGFscGhhLzIsIGRmID0gKGxlbmd0aCh4KSAtIDEpLCBsb3dlci50YWlsID0gRkFMU0UpXG4gIHVwcGVyIDwtIChsZW5ndGgoeCkgLTEgKSAqIHZhcih4KSAvIHFjaGlzcSgxIC0gYWxwaGEgLzIsIGRmID0gKGxlbmd0aCh4KSAtIDEpLCBsb3dlci50YWlsID0gRkFMU0UpXG4gIHJldHVybiAoYyhsb3dlciwgdXBwZXIpKVxufVxudmFyLmNvbmYuaW50KHgpXG5gYGBcblxuPCEtLSBybmItc291cmNlLWVuZCAtLT5cbiJ9 -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudmFyLmNvbmYuaW50IDwtIGZ1bmN0aW9uKHgpIHtcbiAgbG93ZXIgPC0gKGxlbmd0aCh4KSAtIDEpICogdmFyKHgpIC8gcWNoaXNxKGFscGhhLzIsIGRmID0gKGxlbmd0aCh4KSAtIDEpLCBsb3dlci50YWlsID0gRkFMU0UpXG4gIHVwcGVyIDwtIChsZW5ndGgoeCkgLTEgKSAqIHZhcih4KSAvIHFjaGlzcSgxIC0gYWxwaGEgLzIsIGRmID0gKGxlbmd0aCh4KSAtIDEpLCBsb3dlci50YWlsID0gRkFMU0UpXG4gIHJldHVybiAoYyhsb3dlciwgdXBwZXIpKVxufVxudmFyLmNvbmYuaW50KHgpXG5gYGAifQ== -->
-<pre class="r"><code>var.conf.int &lt;- function(x) {
-  lower &lt;- (length(x) - 1) * var(x) / qchisq(alpha/2, df = (length(x) - 1), lower.tail = FALSE)
-  upper &lt;- (length(x) -1 ) * var(x) / qchisq(1 - alpha /2, df = (length(x) - 1), lower.tail = FALSE)
-  return (c(lower, upper))
-}
-var.conf.int(x)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdICA4MC4xOTc1IDIxMC40MTU1XG4ifQ== -->
-<pre><code>[1]  80.1975 210.4155</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-</div>
-<div id="exercise-2" class="section level1">
-<h1>Exercise 2</h1>
-<p>Тимот за аналититка во еден ланец златари коишто откупуваат злато, на
-случаен начин избрал 35 различни седмици и сака да спроведе анализа за
-масата (изразена во мг) откупено злато во текот на една седмица од
-страна на ланецот златари се зголемил после маркетинг кампањата што ја
-спровеле во текот на овие седмици. Познато е дека масата откупено злато
-има нормална распеделба. Резултатите се следните: 120, 125, 130, 110,
-115, 140, 135, 128, 122, 118, 132, 140, 138, 121, 133, 130, 126, 127,
-129, 119, 136, 125, 123, 131, 124, 137, 139, 120, 128, 132, 125, 100,
-101, 102, 103 Очекуваната маса откупено злато во текот на една недела
-пред маркетинг камањата била 95мг. Користејќи ги прибраните податоци, со
-ниво на значајност 0.05, да се тестира дали очекуваната маса откупено
-злато во текот на една седмица се зголемила, поради маркетинг
-кампањата.</p>
-<div id="solution-1" class="section level2">
-<h2>Solution</h2>
-<p><span class="math display">\[
-H_0: \mu = 95,
-\]</span></p>
-<p><span class="math display">\[
-H_a: \mu &gt; 95
-\]</span></p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVlQ0E4TFNCaktERXlNQ3dnTVRJMUxDQXhNekFzSURFeE1Dd2dNVEUxTENBeE5EQXNJREV6TlN3Z01USTRMQ0F4TWpJc0lERXhPQ3dnTVRNeUxDQXhOREFzSURFek9Dd2dNVEl4TENBeE16TXNJREV6TUN3Z01USTJMQ0F4TWpjc0lERXlPU3dnTVRFNUxDQXhNellzSURFeU5Td2dNVEl6TENBeE16RXNJREV5TkN3Z01UTTNMQ0F4TXprc0lERXlNQ3dnTVRJNExDQXhNeklzSURFeU5Td2dNVEF3TENBeE1ERXNJREV3TWl3Z01UQXpLVnh1YkdsaWNtRnllU2hjSWtKVFJFRmNJaWxjYm1Gc2NHaGhJRHd0SURBdU1EVWdYRzV5WlhOMWJIUWdQQzBnZWk1MFpYTjBLSGdzSUdGc2RHVnlibUYwYVhabElEMGdYQ0puY21WaGRHVnlYQ0lzSUcxMUlEMGdPVFVzSUdOdmJtWXViR1YyWld3Z1BTQXhJQzBnWVd4d2FHRXNJSE5wWjIxaExuZ2dQU0J6WkNoNEtTbGNibUZzY0doaElEd2djbVZ6ZFd4MEpIQXVkbUZzZFdWY2JtQmdZQ0o5IC0tPlxuXG5gYGByXG54IDwtIGMoMTIwLCAxMjUsIDEzMCwgMTEwLCAxMTUsIDE0MCwgMTM1LCAxMjgsIDEyMiwgMTE4LCAxMzIsIDE0MCwgMTM4LCAxMjEsIDEzMywgMTMwLCAxMjYsIDEyNywgMTI5LCAxMTksIDEzNiwgMTI1LCAxMjMsIDEzMSwgMTI0LCAxMzcsIDEzOSwgMTIwLCAxMjgsIDEzMiwgMTI1LCAxMDAsIDEwMSwgMTAyLCAxMDMpXG5saWJyYXJ5KFwiQlNEQVwiKVxuYWxwaGEgPC0gMC4wNSBcbnJlc3VsdCA8LSB6LnRlc3QoeCwgYWx0ZXJuYXRpdmUgPSBcImdyZWF0ZXJcIiwgbXUgPSA5NSwgY29uZi5sZXZlbCA9IDEgLSBhbHBoYSwgc2lnbWEueCA9IHNkKHgpKVxuYWxwaGEgPCByZXN1bHQkcC52YWx1ZVxuYGBgXG5cbjwhLS0gcm5iLXNvdXJjZS1lbmQgLS0+XG4ifQ== -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueCA8LSBjKDEyMCwgMTI1LCAxMzAsIDExMCwgMTE1LCAxNDAsIDEzNSwgMTI4LCAxMjIsIDExOCwgMTMyLCAxNDAsIDEzOCwgMTIxLCAxMzMsIDEzMCwgMTI2LCAxMjcsIDEyOSwgMTE5LCAxMzYsIDEyNSwgMTIzLCAxMzEsIDEyNCwgMTM3LCAxMzksIDEyMCwgMTI4LCAxMzIsIDEyNSwgMTAwLCAxMDEsIDEwMiwgMTAzKVxubGlicmFyeShcIkJTREFcIilcbmFscGhhIDwtIDAuMDUgXG5yZXN1bHQgPC0gei50ZXN0KHgsIGFsdGVybmF0aXZlID0gXCJncmVhdGVyXCIsIG11ID0gOTUsIGNvbmYubGV2ZWwgPSAxIC0gYWxwaGEsIHNpZ21hLnggPSBzZCh4KSlcbmFscGhhIDwgcmVzdWx0JHAudmFsdWVcbmBgYCJ9 -->
-<pre class="r"><code>x &lt;- c(120, 125, 130, 110, 115, 140, 135, 128, 122, 118, 132, 140, 138, 121, 133, 130, 126, 127, 129, 119, 136, 125, 123, 131, 124, 137, 139, 120, 128, 132, 125, 100, 101, 102, 103)
-library(&quot;BSDA&quot;)
-alpha &lt;- 0.05 
-result &lt;- z.test(x, alternative = &quot;greater&quot;, mu = 95, conf.level = 1 - alpha, sigma.x = sd(x))
-alpha &lt; result$p.value</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIEZBTFNFXG4ifQ== -->
-<pre><code>[1] FALSE</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-</div>
-<div id="exercise-3" class="section level1">
-<h1>Exercise 3</h1>
-<div id="solution-2" class="section level2">
-<h2>Solution</h2>
-<p><span class="math display">\[
-H_0: X has Geo(0.3),
-\]</span></p>
-<p><span class="math display">\[
-H_a: X!Geo(0.3)
-\]</span></p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVZV3h3YUdFZ1BDMGdNQzR3TlZ4dWNEQWdQQzBnY0dkbGIyMG9NU3dnTUM0ektTQWpJRU5FUmx4dWNERWdQQzBnWkdkbGIyMG9NaXdnTUM0ektTQWpJRkJOUmx4dWNESWdQQzBnWkdkbGIyMG9NeXdnTUM0ektTQWpJRkJOUmx4dWNETWdQQzBnTVNBdElDaHdNQ0FySUhBeElDc2djRElwSUNNZ01TQXRJRU5FUmlBOFBTQTFYRzVjYm1aeVpYRnpJRHd0SUdNb01qQXNJRFExTENBeU1Dd2dNVFVwWEc1d2NtOWljeUE4TFNCaktIQXdMQ0J3TVN3Z2NESXNJSEF6S1Z4dWNISnZZbk5jYm1CZ1lDSjkgLS0+XG5cbmBgYHJcbmFscGhhIDwtIDAuMDVcbnAwIDwtIHBnZW9tKDEsIDAuMykgIyBDREZcbnAxIDwtIGRnZW9tKDIsIDAuMykgIyBQTUZcbnAyIDwtIGRnZW9tKDMsIDAuMykgIyBQTUZcbnAzIDwtIDEgLSAocDAgKyBwMSArIHAyKSAjIDEgLSBDREYgPD0gNVxuXG5mcmVxcyA8LSBjKDIwLCA0NSwgMjAsIDE1KVxucHJvYnMgPC0gYyhwMCwgcDEsIHAyLCBwMylcbnByb2JzXG5gYGBcblxuPCEtLSBybmItc291cmNlLWVuZCAtLT5cbiJ9 -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYWxwaGEgPC0gMC4wNVxucDAgPC0gcGdlb20oMSwgMC4zKSAjIENERlxucDEgPC0gZGdlb20oMiwgMC4zKSAjIFBNRlxucDIgPC0gZGdlb20oMywgMC4zKSAjIFBNRlxucDMgPC0gMSAtIChwMCArIHAxICsgcDIpICMgMSAtIENERiA8PSA1XG5cbmZyZXFzIDwtIGMoMjAsIDQ1LCAyMCwgMTUpXG5wcm9icyA8LSBjKHAwLCBwMSwgcDIsIHAzKVxucHJvYnNcbmBgYCJ9 -->
-<pre class="r"><code>alpha &lt;- 0.05
-p0 &lt;- pgeom(1, 0.3) # CDF
-p1 &lt;- dgeom(2, 0.3) # PMF
-p2 &lt;- dgeom(3, 0.3) # PMF
-p3 &lt;- 1 - (p0 + p1 + p2) # 1 - CDF &lt;= 5
-
-freqs &lt;- c(20, 45, 20, 15)
-probs &lt;- c(p0, p1, p2, p3)
-probs</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuNTEwMCAwLjE0NzAgMC4xMDI5IDAuMjQwMVxuIn0= -->
-<pre><code>[1] 0.5100 0.1470 0.1029 0.2401</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVjbVZ6SUR3dElHTm9hWE54TG5SbGMzUW9abkpsY1hNc0lIQTljSEp2WW5NcFhHNWhiSEJvWVNBOElISmxjeVJ3TG5aaGJIVmxYRzVnWUdBaWZRPT0gLS0+XG5cbmBgYHJcbnJlcyA8LSBjaGlzcS50ZXN0KGZyZXFzLCBwPXByb2JzKVxuYWxwaGEgPCByZXMkcC52YWx1ZVxuYGBgXG5cbjwhLS0gcm5iLXNvdXJjZS1lbmQgLS0+XG4ifQ== -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucmVzIDwtIGNoaXNxLnRlc3QoZnJlcXMsIHA9cHJvYnMpXG5hbHBoYSA8IHJlcyRwLnZhbHVlXG5gYGAifQ== -->
-<pre class="r"><code>res &lt;- chisq.test(freqs, p=probs)
-alpha &lt; res$p.value</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIEZBTFNFXG4ifQ== -->
-<pre><code>[1] FALSE</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-</div>
-<div id="exercise-4" class="section level1">
-<h1>Exercise 4</h1>
-</div>
-<div id="exercise-5" class="section level1">
-<h1>Exercise 5</h1>
-<div id="solution-3" class="section level2">
-<h2>Solution</h2>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVlQ0E4TFNCaktEYzBNeXdnTnpVeExDQTNORGdzSURjMU55d2dOelV5TENBM05EVXNJRGMxTUN3Z056VTFMQ0EzTkRrc0lEYzFOQ3dnTnpReUxDQTNOVFlzSURjME5Dd2dOelV6TENBM05EWXBYRzVrYVhNZ1BDMGdORnh1WVd4d2FHRWdQQzBnTUM0d05WeHVZMmhwWDNOeElEd3RJQ2dvYkdWdVozUm9LSGdwSUMwZ01Ta2dLaUIyWVhJb2VDa3BJQzhnWkdselhHNWlJRHd0SUhGamFHbHpjU2hoYkhCb1lTd2diR1Z1WjNSb0tIZ3BJQzBnTVN3Z2JHOTNaWEl1ZEdGcGJDQTlJRVpCVEZORktWeHVZbHh1WUdCZ0luMD0gLS0+XG5cbmBgYHJcbnggPC0gYyg3NDMsIDc1MSwgNzQ4LCA3NTcsIDc1MiwgNzQ1LCA3NTAsIDc1NSwgNzQ5LCA3NTQsIDc0MiwgNzU2LCA3NDQsIDc1MywgNzQ2KVxuZGlzIDwtIDRcbmFscGhhIDwtIDAuMDVcbmNoaV9zcSA8LSAoKGxlbmd0aCh4KSAtIDEpICogdmFyKHgpKSAvIGRpc1xuYiA8LSBxY2hpc3EoYWxwaGEsIGxlbmd0aCh4KSAtIDEsIGxvd2VyLnRhaWwgPSBGQUxTRSlcbmJcbmBgYFxuXG48IS0tIHJuYi1zb3VyY2UtZW5kIC0tPlxuIn0= -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueCA8LSBjKDc0MywgNzUxLCA3NDgsIDc1NywgNzUyLCA3NDUsIDc1MCwgNzU1LCA3NDksIDc1NCwgNzQyLCA3NTYsIDc0NCwgNzUzLCA3NDYpXG5kaXMgPC0gNFxuYWxwaGEgPC0gMC4wNVxuY2hpX3NxIDwtICgobGVuZ3RoKHgpIC0gMSkgKiB2YXIoeCkpIC8gZGlzXG5iIDwtIHFjaGlzcShhbHBoYSwgbGVuZ3RoKHgpIC0gMSwgbG93ZXIudGFpbCA9IEZBTFNFKVxuYlxuYGBgIn0= -->
-<pre class="r"><code>x &lt;- c(743, 751, 748, 757, 752, 745, 750, 755, 749, 754, 742, 756, 744, 753, 746)
-dis &lt;- 4
-alpha &lt;- 0.05
-chi_sq &lt;- ((length(x) - 1) * var(x)) / dis
-b &lt;- qchisq(alpha, length(x) - 1, lower.tail = FALSE)
-b</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDIzLjY4NDc5XG4ifQ== -->
-<pre><code>[1] 23.68479</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVZMmhwWDNOeElEd2dZbHh1WUdCZ0luMD0gLS0+XG5cbmBgYHJcbmNoaV9zcSA8IGJcbmBgYFxuXG48IS0tIHJuYi1zb3VyY2UtZW5kIC0tPlxuIn0= -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2hpX3NxIDwgYlxuYGBgIn0= -->
-<pre class="r"><code>chi_sq &lt; b</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIEZBTFNFXG4ifQ== -->
-<pre><code>[1] FALSE</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-</div>
-<div id="exercise-6" class="section level1">
-<h1>Exercise 6</h1>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
 <!-- rnb-chunk-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiaXNwaXRfMDMwMjIwMjUiCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KCiMgRXhlcmNpc2UgMQoK0KLQuNC80L7RgiDQt9CwINCw0L3QsNC70LjRgtC40LrQsCDQstC+INC10LTQtdC9INC70LDQvdC10YYg0LfQu9Cw0YLQsNGA0Lgg0LrQvtC40YjRgtC+INC+0YLQutGD0L/Rg9Cy0LDQsNGCINC30LvQsNGC0L4sINC90LAg0YHQu9GD0YfQsNC10L0g0L3QsNGH0LjQvSDQuNC30LHRgNCw0LsgMzUg0YDQsNC30LvQuNGH0L3QuCDRgdC10LTQvNC40YbQuCDQuCDRgdCw0LrQsCDQtNCwINGB0L/RgNC+0LLQtdC00LUg0LDQvdCw0LvQuNC30LAg0LfQsCDQvNCw0YHQsNGC0LAgKNC40LfRgNCw0LfQtdC90LAg0LLQviDQvNC40LvQuNCz0YDQsNC80LApINC+0YLQutGD0L/QtdC90L4g0LfQu9Cw0YLQviDQstC+INGC0LXQutC+0YIg0L3QsCDQtdC00L3QsCDRgdC10LTQvNC40YbQsCDQvtC0INGB0YLRgNCw0L3QsCDQvdCwINC70LDQvdC10YbQvtGCINC30LvQsNGC0LDRgNC4LiDQoNC10LfRg9C70YLQsNGC0LjRgtC1INGB0LUg0YHQu9C10LTQvdC40YLQtTogMTIwLCAxMjUsIDEzMCwgMTEwLCAxMTUsIDE0MCwgMTM1LCAxMjgsIDEyMiwgMTE4LCAxMzIsIDE0MCwgMTM4LCAxMjEsIDEzMywgMTMwLCAxMjYsIDEyNywgMTI5LCAxMTksIDEzNiwgMTI1LCAxMjMsIDEzMSwgMTI0LCAxMzcsIDEzOSwgMTIwLCAxMjgsIDEzMiwgMTI1LCAxMDAsIDEwMSwgMTAyLCAxMDMg0J7QtCDQvtCy0LjQtSDQv9C+0LTQsNGC0L7RhtC4LCDQv9GA0LXRgdC80LXRgtCw0ZjRgtC1IDk1JSDQuNC90YLQtdGA0LLQsNC7INC90LAg0LTQvtCy0LXRgNCx0LAg0L3QsCDQtNC40YHQv9C10YDQt9C40ZjQsNGC0LAg0L3QsCDQvNCw0YHQsNGC0LAg0LfQu9Cw0YLQviDRiNGC0L4g0LPQviDQvtGC0LrRg9C/0YPQstCwINC70LDQvdC10YbQvtGCINC30LvQsNGC0LDRgNC4INCy0L4g0YLQtdC60L7RgiDQvdCwINC10LTQvdCwINGB0LXQtNC80LjRhtCwLiDQn9C+0LfQvdCw0YLQviDQtSDQtNC10LrQsCDQvNCw0YHQsNGC0LAg0LfQu9Cw0YLQviDRiNGC0L4g0LPQviDQvtGC0LrRg9C/0YPQstCwINC70LDQvdC10YbQvtGCINC30LvQsNGC0LDRgNC4INCy0L4g0YLQtdC60L7RgiDQvdCwINC10LTQvdCwINGB0LXQtNC80LjRhtCwINC40LzQsCDQvdC+0YDQvNCw0LvQvdCwINGA0LDRgdC/0YDQtdC00LXQu9Cx0LAuCgojIyBTb2x1dGlvbgoKYGBge3J9CnggPC0gYygxMjAsIDEyNSwgMTMwLCAxMTAsIDExNSwgMTQwLCAxMzUsIDEyOCwgMTIyLCAxMTgsIDEzMiwgMTQwLCAxMzgsIDEyMSwgMTMzLCAxMzAsIDEyNiwgMTI3LDEyOSwgMTE5LCAxMzYsIDEyNSwgMTIzLCAxMzEsIDEyNCwgMTM3LCAxMzksIDEyMCwgMTI4LCAxMzIsIDEyNSwgMTAwLCAxMDEsIDEwMiwgMTAzKQphbHBoYSA8LSAwLjA1CnZhcih4KQp2YXIuY29uZi5pbnQgPC0gZnVuY3Rpb24oeCkgewogIGxvd2VyIDwtIChsZW5ndGgoeCkgLSAxKSAqIHZhcih4KSAvIHFjaGlzcShhbHBoYS8yLCBkZiA9IChsZW5ndGgoeCkgLSAxKSwgbG93ZXIudGFpbCA9IEZBTFNFKQogIHVwcGVyIDwtIChsZW5ndGgoeCkgLTEpICogdmFyKHgpIC8gcWNoaXNxKDEgLSBhbHBoYSAvMiwgZGYgPSAobGVuZ3RoKHgpIC0gMSksIGxvd2VyLnRhaWwgPSBGQUxTRSkKICByZXR1cm4gKGMobG93ZXIsIHVwcGVyKSkKfQp2YXIuY29uZi5pbnQoeCkKYGBgCgojIEV4ZXJjaXNlIDIKCtCi0LjQvNC+0YIg0LfQsCDQsNC90LDQu9C40YLQuNGC0LrQsCDQstC+INC10LTQtdC9INC70LDQvdC10YYg0LfQu9Cw0YLQsNGA0Lgg0LrQvtC40YjRgtC+INC+0YLQutGD0L/Rg9Cy0LDQsNGCINC30LvQsNGC0L4sINC90LAg0YHQu9GD0YfQsNC10L0g0L3QsNGH0LjQvSDQuNC30LHRgNCw0LsgMzUg0YDQsNC30LvQuNGH0L3QuCDRgdC10LTQvNC40YbQuCDQuCDRgdCw0LrQsCDQtNCwINGB0L/RgNC+0LLQtdC00LUg0LDQvdCw0LvQuNC30LAg0LfQsCDQvNCw0YHQsNGC0LAgKNC40LfRgNCw0LfQtdC90LAg0LLQviDQvNCzKSDQvtGC0LrRg9C/0LXQvdC+INC30LvQsNGC0L4g0LLQviDRgtC10LrQvtGCINC90LAg0LXQtNC90LAg0YHQtdC00LzQuNGG0LAg0L7QtCDRgdGC0YDQsNC90LAg0L3QsCDQu9Cw0L3QtdGG0L7RgiDQt9C70LDRgtCw0YDQuCDRgdC1INC30LPQvtC70LXQvNC40Lsg0L/QvtGB0LvQtSDQvNCw0YDQutC10YLQuNC90LMg0LrQsNC80L/QsNGa0LDRgtCwINGI0YLQviDRmNCwINGB0L/RgNC+0LLQtdC70LUg0LLQviDRgtC10LrQvtGCINC90LAg0L7QstC40LUg0YHQtdC00LzQuNGG0LguINCf0L7Qt9C90LDRgtC+INC1INC00LXQutCwINC80LDRgdCw0YLQsCDQvtGC0LrRg9C/0LXQvdC+INC30LvQsNGC0L4g0LjQvNCwINC90L7RgNC80LDQu9C90LAg0YDQsNGB0L/QtdC00LXQu9Cx0LAuINCg0LXQt9GD0LvRgtCw0YLQuNGC0LUg0YHQtSDRgdC70LXQtNC90LjRgtC1OiAxMjAsIDEyNSwgMTMwLCAxMTAsIDExNSwgMTQwLCAxMzUsIDEyOCwgMTIyLCAxMTgsIDEzMiwgMTQwLCAxMzgsIDEyMSwgMTMzLCAxMzAsIDEyNiwgMTI3LCAxMjksIDExOSwgMTM2LCAxMjUsIDEyMywgMTMxLCAxMjQsIDEzNywgMTM5LCAxMjAsIDEyOCwgMTMyLCAxMjUsIDEwMCwgMTAxLCAxMDIsIDEwMyDQntGH0LXQutGD0LLQsNC90LDRgtCwINC80LDRgdCwINC+0YLQutGD0L/QtdC90L4g0LfQu9Cw0YLQviDQstC+INGC0LXQutC+0YIg0L3QsCDQtdC00L3QsCDQvdC10LTQtdC70LAg0L/RgNC10LQg0LzQsNGA0LrQtdGC0LjQvdCzINC60LDQvNCw0ZrQsNGC0LAg0LHQuNC70LAgOTXQvNCzLiDQmtC+0YDQuNGB0YLQtdGY0ZzQuCDQs9C4INC/0YDQuNCx0YDQsNC90LjRgtC1INC/0L7QtNCw0YLQvtGG0LgsINGB0L4g0L3QuNCy0L4g0L3QsCDQt9C90LDRh9Cw0ZjQvdC+0YHRgiAwLjA1LCDQtNCwINGB0LUg0YLQtdGB0YLQuNGA0LAg0LTQsNC70Lgg0L7Rh9C10LrRg9Cy0LDQvdCw0YLQsCDQvNCw0YHQsCDQvtGC0LrRg9C/0LXQvdC+INC30LvQsNGC0L4g0LLQviDRgtC10LrQvtGCINC90LAg0LXQtNC90LAg0YHQtdC00LzQuNGG0LAg0YHQtSDQt9Cz0L7Qu9C10LzQuNC70LAsINC/0L7RgNCw0LTQuCDQvNCw0YDQutC10YLQuNC90LMg0LrQsNC80L/QsNGa0LDRgtCwLgoKIyMgU29sdXRpb24KCiQkCkhfMDogXG11ID0gOTUsCiQkCgokJApIX2E6IFxtdSA+IDk1CiQkCgpgYGB7cn0KeCA8LSBjKDEyMCwgMTI1LCAxMzAsIDExMCwgMTE1LCAxNDAsIDEzNSwgMTI4LCAxMjIsIDExOCwgMTMyLCAxNDAsIDEzOCwgMTIxLCAxMzMsIDEzMCwgMTI2LCAxMjcsIDEyOSwgMTE5LCAxMzYsIDEyNSwgMTIzLCAxMzEsIDEyNCwgMTM3LCAxMzksIDEyMCwgMTI4LCAxMzIsIDEyNSwgMTAwLCAxMDEsIDEwMiwgMTAzKQpsaWJyYXJ5KCJCU0RBIikKYWxwaGEgPC0gMC4wNSAKcmVzdWx0IDwtIHoudGVzdCh4LCBhbHRlcm5hdGl2ZSA9ICJncmVhdGVyIiwgbXUgPSA5NSwgY29uZi5sZXZlbCA9IDEgLSBhbHBoYSwgc2lnbWEueCA9IHNkKHgpKQphbHBoYSA8IHJlc3VsdCRwLnZhbHVlCiMgdGhlIHAtdmFsdWUgaXMgbGVzcyB0aGFuIGFscGhhIC0+IEhfMCBpcyByZWplY3RlZCwgaS5lLiB0aGUgZXhwZWN0ZWQgZ29sZCBtYXNzIGlzIGxhcmdlciBhZnRlciBvbmUgY2FtcGFpZ24KYGBgCgojIEV4ZXJjaXNlIDMKCiMjIFNvbHV0aW9uCgokJApIXzA6IFggaGFzIEdlbygwLjMpLAokJAoKJCQKSF9hOiBYIUdlbygwLjMpCiQkCgpgYGB7cn0KYWxwaGEgPC0gMC4wNQpwMCA8LSBwZ2VvbSgxLCAwLjMpICMgQ0RGCnAxIDwtIGRnZW9tKDIsIDAuMykgIyBQTUYKcDIgPC0gZGdlb20oMywgMC4zKSAjIFBNRgpwMyA8LSAxIC0gKHAwICsgcDEgKyBwMikgIyAxIC0gQ0RGIDw9IDUKCmZyZXFzIDwtIGMoMjAsIDQ1LCAyMCwgMTUpCnByb2JzIDwtIGMocDAsIHAxLCBwMiwgcDMpCnByb2JzCnJlcyA8LSBjaGlzcS50ZXN0KGZyZXFzLCBwPXByb2JzKQphbHBoYSA8IHJlcyRwLnZhbHVlCgpgYGAKCiMgRXhlcmNpc2UgNAoKIyBFeGVyY2lzZSA1CgojIyBTb2x1dGlvbgoKYGBge3J9CnggPC0gYyg3NDMsIDc1MSwgNzQ4LCA3NTcsIDc1MiwgNzQ1LCA3NTAsIDc1NSwgNzQ5LCA3NTQsIDc0MiwgNzU2LCA3NDQsIDc1MywgNzQ2KQpkaXMgPC0gNAphbHBoYSA8LSAwLjA1CmNoaV9zcSA8LSAoKGxlbmd0aCh4KSAtIDEpICogdmFyKHgpKSAvIGRpcwpiIDwtIHFjaGlzcShhbHBoYSwgbGVuZ3RoKHgpIC0gMSwgbG93ZXIudGFpbCA9IEZBTFNFKQpiCmNoaV9zcSA8IGIKYGBgCgojIEV4ZXJjaXNlIDYKCmBgYHtyfQpgYGAK</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiSXNwaXQgMDYwMjIwMjQiCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KCiMgRXhlcmNpc2UgMTIKCmBgYHtyfQpwNSA8LSAxIC0gcGV4cCg5MCwgcmF0ZSA9IDEvNDApCnAxCmBgYAo=</div>
 
 
 
@@ -1965,7 +1815,7 @@ $(document).ready(function () {
 <!-- code folding -->
 <script>
 $(document).ready(function () {
-  window.initializeSourceEmbed("ispit_03022025.Rmd");
+  window.initializeSourceEmbed("ispit_06022024.Rmd");
   window.initializeCodeFolding("show" === "show");
 });
 </script>
